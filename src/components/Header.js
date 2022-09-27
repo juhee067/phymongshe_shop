@@ -12,12 +12,13 @@ const Header = () => {
 
       sct > 0 ? setOn(true) : setOn(false);
     };
+    window.addEventListener("scroll", scrollEvent);
     return () => {
       window.addEventListener("scroll", scrollEvent);
     };
   }, []);
   return (
-    <header className={`Header {on?'on':""}`}>
+    <header className={`Header ${on ? "on" : ""}`}>
       <TopBanner />
       <div className="gnb">
         <h1>
@@ -31,7 +32,7 @@ const Header = () => {
         <nav className="inner">
           <MainNav />
         </nav>
-        <div className="rt">
+        <ul className="rt">
           <li>
             <FiUserPlus />
           </li>
@@ -44,7 +45,7 @@ const Header = () => {
             {" "}
             <FiSearch />
           </li>
-        </div>
+        </ul>
       </div>
     </header>
   );
